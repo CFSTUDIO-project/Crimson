@@ -3,6 +3,8 @@ package dev.crimson.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.input.KeyEvent;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import org.lwjgl.glfw.GLFW;
 import java.util.List;
@@ -75,8 +77,9 @@ public final class CrimsonScreen extends Screen {
         g.fill(x,y,x+w,y+h,hover?accent:0xFF6B2734);g.fill(x+1,y+1,x+w-1,y+h-1,0xFF101116);
         g.drawCenteredString(font,label,x+w/2,y+9,0xFFEDE5E9);
     }
-    @Override public boolean mouseClicked(double mx,double my,int button){
-        if(button!=0)return super.mouseClicked(mx,my,button);
+    @Override public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick){
+        double mx=event.x(), my=event.y(); int button=event.button();
+        if(button!=0)return super.mouseClicked(event,doubleClick);
         int w=Math.min(850,width-24),h=Math.min(510,height-24),x=(width-w)/2,y=(height-h)/2;
         int side=Math.min(164,w/3),bodyX=x+side;
         int tabY=y+62;
@@ -98,12 +101,12 @@ public final class CrimsonScreen extends Screen {
             else if(mx>=cx+2*(third+11)&&mx<=cx+contentW)CrimsonConfig.reset();
             CrimsonClient.playClick(Minecraft.getInstance());return true;
         }
-        return super.mouseClicked(mx,my,button);
+        return super.mouseClicked(event,doubleClick);
     }
     @Override public boolean mouseScrolled(double mx,double my,double hx,double vy){
         scroll=Math.max(0,Math.min(CrimsonModule.in(selected).size()-1,scroll+(vy<0?1:-1)));return true;
     }
-    @Override public boolean keyPressed(net.minecraft.client.input.KeyEvent event){
+    @Override public boolean keyPressed(KeyEvent event){
         if(event.key()==GLFW.GLFW_KEY_ESCAPE||event.key()==GLFW.GLFW_KEY_RIGHT_SHIFT){beginClose();return true;}
         return super.keyPressed(event);
     }
