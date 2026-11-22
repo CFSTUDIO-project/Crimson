@@ -67,7 +67,7 @@ public final class CrimsonClient implements ClientModInitializer {
         if(CrimsonConfig.enabled(CrimsonModule.HEALTH))lines.add(String.format("HEALTH  %.1f / %.1f",c.player.getHealth(),c.player.getMaxHealth()));
         if(CrimsonConfig.enabled(CrimsonModule.HUNGER))lines.add("HUNGER  "+c.player.getFoodData().getFoodLevel()+"/20");
         if(CrimsonConfig.enabled(CrimsonModule.BIOME)){
-            String biome=c.level.getBiome(BlockPos.containing(c.player.getX(),c.player.getY(),c.player.getZ())).unwrapKey().map(k->k.location().getPath().replace('_',' ')).orElse("unknown");
+            String biome=c.level.getBiome(BlockPos.containing(c.player.getX(),c.player.getY(),c.player.getZ())).unwrapKey().map(k->k.toString().replaceAll(".* / ","").replaceAll(".*:","").replace('_',' ')).orElse("unknown");
             lines.add("BIOME  "+biome.toUpperCase());
         }
         if(CrimsonConfig.enabled(CrimsonModule.ATTACK_COOLDOWN))lines.add("ATTACK  "+Math.round(c.player.getAttackStrengthScale(0)*100)+"%");
