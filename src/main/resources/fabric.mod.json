@@ -3,7 +3,7 @@
   "id": "crimson",
   "version": "${version}",
   "name": "Crimson",
-  "description": "A crimson glass client-side utility suite with animated click GUI, configurable HUD modules, zoom, fullbright and permission-gated world radar.",
+  "description": "A crimson glass client-side utility suite with animated click GUI, configurable HUD modules, zoom and fullbright.",
   "authors": [
     "CFSTUDIO-project"
   ],
@@ -12,7 +12,6 @@
     "issues": "https://github.com/CFSTUDIO-project/Crimson/issues"
   },
   "license": "MIT",
-  "icon": "assets/crimson/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
