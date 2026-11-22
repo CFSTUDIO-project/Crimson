@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "crimson",
+  "version": "${version}",
+  "name": "Crimson",
+  "description": "A crimson glass client-side utility suite with animated click GUI, configurable HUD modules, zoom, fullbright and permission-gated world radar.",
+  "authors": [
+    "CFSTUDIO-project"
+  ],
+  "contact": {
+    "sources": "https://github.com/CFSTUDIO-project/Crimson",
+    "issues": "https://github.com/CFSTUDIO-project/Crimson/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/crimson/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.crimson.client.CrimsonClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}
