@@ -14,8 +14,6 @@ public enum CrimsonModule {
     HEALTH("Health", "Displays current health", Category.PLAYER, false),
     HUNGER("Hunger", "Displays food meter", Category.PLAYER, false),
     BIOME("Biome", "Displays current biome", Category.WORLD, false),
-    CHEST_RADAR("Chest Radar", "Loaded containers in permitted worlds", Category.WORLD, true),
-    ORE_RADAR("Ore Radar", "Loaded ore blocks in permitted worlds", Category.WORLD, true),
     WORLD_CLOCK("World Clock", "Displays world time", Category.WORLD, false),
     REAL_CLOCK("Local Clock", "Displays device time", Category.MISC, false),
     KEYSTROKES("Keystrokes", "Displays movement input", Category.MISC, false);
