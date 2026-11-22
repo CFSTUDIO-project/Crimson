@@ -58,6 +58,7 @@ public final class CrimsonConfig {
         try(Writer w=Files.newBufferedWriter(FILE,StandardCharsets.UTF_8)){VALUES.store(w,"Crimson client configuration");}
         catch(IOException e){CrimsonClient.LOGGER.error("Could not save Crimson configuration",e);}
     }
+    public static void reload(){ loaded=false; VALUES.clear(); ALLOWED.clear(); load(); }
     public static void reset(){
         load();for(CrimsonModule m:CrimsonModule.values())setEnabled(m,m==CrimsonModule.COORDINATES||m==CrimsonModule.FPS||m==CrimsonModule.DIRECTION||m==CrimsonModule.HUD_PANEL);
         accentTheme=0;backgroundTheme=0;clickSounds=true;compactHud=true;save();
